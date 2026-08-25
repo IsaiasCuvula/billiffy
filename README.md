@@ -1,8 +1,7 @@
 Get it on [**Google Play Store**](https://play.google.com/store/apps/details?id=com.bersyte.billify) & [**App Store**](https://apps.apple.com/bg/app/billiffy/id1638395030) !
 
-<p align="left">
-  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/78721c19-541d-4aab-b156-7484d3d181be"/>
-  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/ccc118f2-b64f-4ff8-a452-f3ece789ba63"/>
+<p>
+  <img width="1232" height="729" alt="Offline first architecture" src="https://github.com/user-attachments/assets/403edd51-b490-4eae-83b2-dd4cf9a783cd" />
 </p>
 
 # Billiffy
@@ -51,6 +50,12 @@ This keeps the UI always responsive, even offline, and shields the user from net
 
 * Android
 * iOS
+
+<p align="left">
+  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/78721c19-541d-4aab-b156-7484d3d181be"/>
+  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/ccc118f2-b64f-4ff8-a452-f3ece789ba63"/>
+</p>
+
 
 ## Engineering challenges solved:
 
