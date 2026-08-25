@@ -1,43 +1,148 @@
-# Billiffy is a bill reminder app
+Get it on [**Google Play Store**](https://play.google.com/store/apps/details?id=com.bersyte.billify) & [**App Store**](https://apps.apple.com/bg/app/billiffy/id1638395030) !
 
-Billify is a bill reminder app that allows you to receive occasional reminders to pay your bills on time and before the due dates. Pay your bills at the most convenient time.
 
-## Technologies
+# Billiffy
 
-- Flutter 🦋 
-- Dart 💻
-- Sqlflite 💽 
-- Firebase 🔥
-- Shared Preferences 💾
-- Google Sign 🔑
-- Clean Architecture 🔨
-- GoRoute for Navigation 🗺️
-- Riverpod for State Management 🚀
-- Internationalization (en & pt) 🌎
-- Optimized for iOS and Android 📱
+A cross-platform personal/colaborative finance app built with Flutter for android and iOS, focused on offline-first data management, collaborative accounts, and automated recurring transaction entry.
 
-## Features:
-- Create new bills with due date and time, automated or custom categories, amount, currency type, and optional notes.
-- Support for more than 10 currencies, so you can add bills in different currencies.
-- Choose from different categories for better organization.
-- View all bills or filter them by status (Upcoming, Paid, and Overdue).
-- Update your bills by adding additional notes and mark them as paid.
-- Delete bills that are no longer needed.
-- Calendar view with all marked bills (color-coded by category).
-- Add bills directly from the calendar by clicking on the desired day.
-- In the calendar view, see the total amount for each currency and each month.
-- View bills for the current month, past months, or future months and years.
-- Generate reports with bar or pie charts for different currencies.
-- Filter reports by yearly, monthly, weekly, or daily periods.
-- Customize the default chart type and currency in the app settings.
+The app is currently available on Google Play, with the iOS release coming next.
 
-Keep track of your bills and ensure timely payments with Billify. Never miss a due date again! 
+## Technical Highlights
+
+* Offline-first architecture with local persistence as the primary source for the UI.
+* Drift for the local relational database and reactive data access.
+* Firebase for authentication, backend services, and cloud data.
+* Outbox pattern for reliably queueing local mutations while offline and synchronizing them when connectivity is restored.
+* Inbox pattern for pulling and applying remote changes locally.
+* Last Write Wins (LWW) conflict resolution for concurrent updates.
+* Collaborative accounts with shared transactions, budgets, and categories.
+* Multiple accounts with isolated account data and session management when switching between accounts.
+* Multi-currency transactions with automatic currency conversion.
+* AI-assisted transaction creation from text, voice, and receipt scans.
+* RevenueCat for subscription and premium feature management.
+* Firebase Crashlytics for crash reporting and stability monitoring.
+* PostHog for product analytics and usage insights.
+* Google and Apple Sign-In, plus email/password authentication.
+* Internationalization with English and Portuguese support.
+
+## Architecture
+
+The application follows a layered architecture designed to keep the domain and presentation layers independent from infrastructure concerns.
+
+### Offline-first
+
+The local database is the primary data source for the application.
+
+User actions are persisted locally first, allowing the application to remain fully usable without a network connection. Changes that need to reach the backend are placed in an outbox queue and synchronized when connectivity becomes available.
+
+Remote changes are handled through an "inbox flow", allowing the local database to consume changes received from the backend.
+
+The synchronization flow can be summarized as:
+
+```text
+UI
+ ↓
+Local Database (Drift)
+ ↓
+Outbox
+ ↓
+Sync
+ ↓
+Firebase
+ ↓
+Inbox
+ ↓
+Local Database
+```
+
+This approach allows the UI to remain responsive and functional regardless of network availability.
+
+### Conflict Resolution
+
+Collaborative accounts introduce concurrent writes from multiple devices.
+
+Billiffy currently uses Last Write Wins (LWW) as the conflict resolution strategy for synchronized entities. This keeps synchronization deterministic while allowing multiple users and devices to modify shared data.
+
+### Multiple Accounts
+
+The application supports multiple financial accounts and requires session state to be managed independently from the currently selected account.
+
+Switching accounts updates the active data scope while keeping account-specific transactions, budgets, and categories isolated.
+
+## Core Features
+
+### Transaction Management
+
+* Create income and expense transactions.
+* Add transactions using text, voice, or receipt scanning.
+* Automatic transaction categorization.
+* Attach receipts and images to transactions.
+* Support for multiple currencies.
+* Automatic currency conversion using current exchange rates.
+* Recurring transactions for subscriptions, bills, salaries, and other regular payments.
+
+### Budgets
+
+* Create monthly budgets.
+* Define spending limits by category.
+* Track budget progress.
+* Organize spending using customizable categories.
+
+### Collaborative Accounts
+
+* Create shared accounts.
+* Share transactions with other users.
+* Share budgets and categories.
+* Keep financial data synchronized across multiple devices.
+
+### Analytics
+
+* Expense and income reports.
+* Category-based analysis.
+* Daily, weekly, monthly, and yearly views.
+* Charts for understanding spending patterns.
+
+### Authentication
+
+* Email/password authentication.
+* Google Sign-In.
+* Apple Sign-In.
+* Multiple account support.
+
+## Tech Stack
+
+* Flutter / Dart - cross-platform application
+* Drift - local relational database
+* Firebase - backend and cloud infrastructure
+* Cloud Functions — server-side operations
+* Riverpod - state management
+* GoRouter - navigation
+* RevenueCat - subscriptions and premium entitlements
+* Firebase Crashlytics - crash reporting
+* PostHog - product analytics
+* AI - automated transaction extraction and categorization
+
+## Platforms
+
+* Android
+* iOS
+
+Key engineering challenges included:
+
+* Designing local-first data flows.
+* Implementing reliable synchronization through outbox/inbox patterns.
+* Handling concurrent writes and conflict resolution.
+* Keeping multiple devices synchronized.
+* Managing account-scoped data when switching between accounts.
+* Supporting offline mutations and eventual synchronization.
+* Integrating authentication across multiple providers.
+* Introducing collaborative financial data without compromising the local-first experience.
 
 
 <p align="left">
-  <img width="200" alt="iPhone14ProMockup1" src="https://user-images.githubusercontent.com/68303716/236707656-a06e1a49-dbb1-4ee9-9f64-ab83744c89ee.png" />
-  <img width="200" alt="iPhone14ProMockup2" src="https://user-images.githubusercontent.com/68303716/236707657-aa7b050c-384c-4791-9e3b-d70ebd4a4fe9.png" />
-  <img width="200" alt="iPhone14ProMockup3" src="https://user-images.githubusercontent.com/68303716/236707658-064d2a77-5025-4068-8232-a748c37b76c2.png" />
+  <img width="200" alt="iPhone14ProMockup1" src="https://github.com/user-attachments/assets/5169e06b-370e-4c3e-a246-419c642c4485" />
+  <img width="200" alt="iPhone14ProMockup2" src="https://github.com/user-attachments/assets/1454af34-59c0-4556-838c-4dec6169e5ff" />
+  <img width="200" alt="iPhone14ProMockup3" src="https://github.com/user-attachments/assets/c0569320-1991-43ab-a4e1-4e1ac03af1aa" />
 </p>
 
 
