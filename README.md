@@ -6,7 +6,7 @@ Get it on [**Google Play Store**](https://play.google.com/store/apps/details?id=
 
 # Billiffy
 
-Cross-platform personal and collaborative finance app (Android/iOS), built with Flutter, offline-first.
+Cross-platform personal and collaborative finance app (Android & iOS), built with Flutter, offline-first.
 
 ## Problem and architecture decision
 
