@@ -1,5 +1,9 @@
 Get it on [**Google Play Store**](https://play.google.com/store/apps/details?id=com.bersyte.billify) & [**App Store**](https://apps.apple.com/bg/app/billiffy/id1638395030) !
 
+<p align="left">
+  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/78721c19-541d-4aab-b156-7484d3d181be"/>
+  <img width="370" height="436" alt="Billiffy" src="https://github.com/user-attachments/assets/ccc118f2-b64f-4ff8-a452-f3ece789ba63"/>
+</p>
 
 # Billiffy
 
@@ -137,14 +141,6 @@ Key engineering challenges included:
 * Supporting offline mutations and eventual synchronization.
 * Integrating authentication across multiple providers.
 * Introducing collaborative financial data without compromising the local-first experience.
-
-
-<p align="left">
-  <img width="200" alt="iPhone14ProMockup1" src="https://github.com/user-attachments/assets/5169e06b-370e-4c3e-a246-419c642c4485" />
-  <img width="200" alt="iPhone14ProMockup2" src="https://github.com/user-attachments/assets/1454af34-59c0-4556-838c-4dec6169e5ff" />
-  <img width="200" alt="iPhone14ProMockup3" src="https://github.com/user-attachments/assets/c0569320-1991-43ab-a4e1-4e1ac03af1aa" />
-</p>
-
 
 Get it now on the [**Google Play Store**](https://play.google.com/store/apps/details?id=com.bersyte.billify) & [**App Store**](https://apps.apple.com/bg/app/billiffy/id1638395030) !
 
