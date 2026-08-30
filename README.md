@@ -6,14 +6,14 @@ Get it on [**Google Play Store**](https://play.google.com/store/apps/details?id=
 
 # Billiffy
 
-Cross-platform personal and collaborative finance app (Android & iOS), built with Flutter, offline-first.
+Cross-platform personal and collaborative finance app (Android & iOS) built with Flutter and an offline-first architecture, featuring Shared Wallets that allow Plus and Premium users to seamlessly manage money alongside family, friends, or partners through shared accounts (budgets, transactions, categories, and more) where both owners and guests have full control to add, edit, and delete any recorded transaction.
 
 ## Problem and architecture decision
 
 A finance app needs to work without a network connection and sync data across multiple devices and users without losing consistency. The core decision was making the local database the single source of truth for the UI, treating the backend as an async destination rather than a direct dependency of every user action.
 
 ## Flow 
-```UI → Local DB (Drift) → Outbox → Sync → Firebase → Inbox → Local DB ```
+```UI → Local DB (Drift) → Outbox → Sync → Firebase → Inbox → Sync → Local DB ```
 
 - Outbox: local changes are queued and synced once connectivity is available.
 - Inbox: remote changes are pulled and applied to the local database.
